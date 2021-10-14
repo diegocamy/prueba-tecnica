@@ -10,6 +10,8 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 4000;
 
+app.use(express.json());
+
 app.get("/", (req, res) => {
   res.send("Hello world!");
 });
@@ -17,6 +19,7 @@ app.get("/", (req, res) => {
 app.post("/api/getAlbums", async (req, res) => {
   //get the ip
   const ip = req.ip;
+  const { artist: artistName } = req.body as { artist: string };
 
   //generate the token
   const token = await getToken();
@@ -30,7 +33,7 @@ app.post("/api/getAlbums", async (req, res) => {
         },
       },
     } = await axios.get<SearchResponse>(
-      "https://api.spotify.com/v1/search?query=eminem&offset=0&limit=1&type=artist",
+      `https://api.spotify.com/v1/search?query=${artistName}&offset=0&limit=1&type=artist`,
       {
         headers: {
           Authorization: token || "",
