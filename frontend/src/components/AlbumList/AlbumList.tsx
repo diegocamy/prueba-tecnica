@@ -1,5 +1,5 @@
 import { Album } from "../../interfaces/albumsResponseInterface";
-import { AlbumComponent } from "../AlbumComponent";
+import { AlbumComponent } from "../AlbumComponent/AlbumComponent";
 import "./AlbumList.css";
 
 interface Props {
