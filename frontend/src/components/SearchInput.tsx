@@ -3,7 +3,7 @@ import { useState, FormEvent } from "react";
 import { Album } from "../interfaces/albumsResponseInterface";
 
 interface Props {
-  setAlbums: React.Dispatch<React.SetStateAction<Album[] | undefined>>;
+  setAlbums: React.Dispatch<React.SetStateAction<Album[]>>;
 }
 
 const SearchInput = ({ setAlbums }: Props) => {
