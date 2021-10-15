@@ -46,7 +46,7 @@ app.post("/api/getAlbums", async (req, res) => {
     const {
       data: { items }, //destructuring items array from response (array of albums)
     } = await axios.get<ArtistAlbumsResponse>(
-      `https://api.spotify.com/v1/artists/${artist.id}/albums?offset=0`,
+      `https://api.spotify.com/v1/artists/${artist.id}/albums?offset=0&include_groups=album`,
       {
         headers: {
           Authorization: token || "",
@@ -87,7 +87,8 @@ app.post("/api/getAlbums", async (req, res) => {
     return res.json(albums);
   } catch (error) {
     if (error instanceof Error) {
-      console.log(error);
+      console.log(error.message);
+      return res.json([]);
     }
   }
 });
