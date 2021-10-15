@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-import AlbumList from "./components/AlbumList";
+import AlbumList from "./components/AlbumList/AlbumList";
 import SearchInput from "./components/SearchInput";
 import { Album } from "./interfaces/albumsResponseInterface";
 
