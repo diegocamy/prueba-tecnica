@@ -5,11 +5,12 @@ import "./SearchInput.css";
 
 interface Props {
   setAlbums: React.Dispatch<React.SetStateAction<Album[]>>;
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  loading: boolean;
 }
 
-const SearchInput = ({ setAlbums }: Props) => {
+const SearchInput = ({ setAlbums, loading, setLoading }: Props) => {
   const [artist, setArtist] = useState("");
-  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: FormEvent) => {
     setLoading(true);
@@ -28,9 +29,10 @@ const SearchInput = ({ setAlbums }: Props) => {
           placeholder="Ingrese el nombre del artista"
           value={artist}
           onChange={(e) => setArtist(e.target.value)}
+          disabled={loading}
         />
         <button type="submit" disabled={loading}>
-          {loading ? "Buscando..." : "Buscar"}
+          Buscar
         </button>
       </form>
     </section>

@@ -1,15 +1,19 @@
 import { useState } from "react";
-import "./App.css";
 import AlbumList from "./components/AlbumList/AlbumList";
 import SearchInput from "./components/SearchInput/SearchInput";
 import { Album } from "./interfaces/albumsResponseInterface";
 
 function App() {
   const [albums, setAlbums] = useState<Album[]>([]);
+  const [loading, setLoading] = useState(false);
 
   return (
-    <div className="App">
-      <SearchInput setAlbums={setAlbums} />
+    <div>
+      <SearchInput
+        setAlbums={setAlbums}
+        setLoading={setLoading}
+        loading={loading}
+      />
       <AlbumList albums={albums} />
     </div>
   );
