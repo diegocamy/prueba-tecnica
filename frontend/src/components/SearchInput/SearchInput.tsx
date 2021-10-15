@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, FormEvent } from "react";
-import { Album } from "../interfaces/albumsResponseInterface";
+import { Album } from "../../interfaces/albumsResponseInterface";
+import "./SearchInput.css";
 
 interface Props {
   setAlbums: React.Dispatch<React.SetStateAction<Album[]>>;
@@ -19,11 +20,12 @@ const SearchInput = ({ setAlbums }: Props) => {
   };
 
   return (
-    <section>
+    <section className="search-input">
       <form onSubmit={handleSubmit}>
-        <label htmlFor="artist">Nombre del artista</label>
+        <label htmlFor="artist">Buscar albums</label>
         <input
           name="artist"
+          placeholder="Ingrese el nombre del artista"
           value={artist}
           onChange={(e) => setArtist(e.target.value)}
         />

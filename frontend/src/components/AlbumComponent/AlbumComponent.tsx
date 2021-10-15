@@ -7,7 +7,7 @@ interface Props {
 }
 
 export const AlbumComponent = ({
-  album: { images, name, popularity },
+  album: { images, name, popularity, tracks },
 }: Props) => {
   const [hovering, setIsHovering] = useState(false);
   return (
@@ -20,6 +20,7 @@ export const AlbumComponent = ({
         <div className="overlay">
           <h4>{name}</h4>
           <p>Popularidad: {popularity}</p>
+          <p>Pistas: {tracks.total}</p>
         </div>
       )}
       <img src={images[0].url} alt={name} />

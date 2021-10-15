@@ -1,0 +1,40 @@
+.search-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 250px;
+}
+
+.search-input form {
+  max-width: 600px;
+  width: 100%;
+}
+
+.search-input form label {
+  display: block;
+  font-weight: bold;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.search-input form input {
+  width: 80%;
+  font-size: 1.3rem;
+  padding: 5px 10px;
+  border: none;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.search-input form button {
+  width: 20%;
+  font-size: 1.3rem;
+  padding: 5px;
+  border: none;
+  background-color: black;
+  color: white;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
