@@ -1,6 +1,7 @@
 import { useState } from "react";
 import AlbumList from "./components/AlbumList/AlbumList";
 import SearchInput from "./components/SearchInput/SearchInput";
+import Spinner from "./components/Spinner/Spinner";
 import { Album } from "./interfaces/albumsResponseInterface";
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
         setLoading={setLoading}
         loading={loading}
       />
-      <AlbumList albums={albums} />
+      {loading ? <Spinner /> : <AlbumList albums={albums} />}
     </div>
   );
 }

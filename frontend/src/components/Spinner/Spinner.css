@@ -1,0 +1,33 @@
+.spinner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner i {
+  font-size: 10rem;
+  color: white;
+  animation: tilt linear infinite 2s;
+  margin-bottom: 2rem;
+}
+
+.spinner p {
+  color: white;
+  font-size: 3rem;
+}
+
+@keyframes tilt {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(10deg);
+  }
+  75% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
