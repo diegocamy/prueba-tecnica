@@ -18,7 +18,7 @@ export const AlbumComponent = ({
     >
       {hovering && (
         <div className="overlay">
-          <h3>{name}</h3>
+          <h4>{name}</h4>
           <p>Popularidad: {popularity}</p>
         </div>
       )}
