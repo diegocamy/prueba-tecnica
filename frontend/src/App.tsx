@@ -1,6 +1,7 @@
 import axios from "axios";
 import { FormEvent, useState } from "react";
 import "./App.css";
+import { Album } from "./interfaces/albumsResponseInterface";
 
 function App() {
   const [artist, setArtist] = useState("");
@@ -9,7 +10,7 @@ function App() {
   const handleSubmit = async (e: FormEvent) => {
     setLoading(true);
     e.preventDefault();
-    const { data } = await axios.post("/api/getAlbums", { artist });
+    const { data } = await axios.post<Album[]>("/api/getAlbums", { artist });
     setLoading(false);
     console.log(data);
   };
