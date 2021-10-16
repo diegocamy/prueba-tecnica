@@ -21,6 +21,9 @@ app.post("/api/getAlbums", async (req, res) => {
   const ip = req.ip;
   const { artist: artistName } = req.body as { artist: string };
 
+  //encode the artist name from the request body
+  const encodedArtistName = encodeURI(artistName);
+
   //generate the token
   const token = await getToken();
 
@@ -33,7 +36,7 @@ app.post("/api/getAlbums", async (req, res) => {
         },
       },
     } = await axios.get<SearchResponse>(
-      `https://api.spotify.com/v1/search?query=${artistName}&offset=0&limit=1&type=artist`,
+      `https://api.spotify.com/v1/search?query=${encodedArtistName}&offset=0&limit=1&type=artist`,
       {
         headers: {
           Authorization: token || "",
