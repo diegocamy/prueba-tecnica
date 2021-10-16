@@ -14,6 +14,7 @@ const SearchInput = ({ setAlbums, loading, setLoading }: Props) => {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    if (!artist) return;
     setLoading(true);
     const { data } = await axios.post<Album[]>("/api/getAlbums", { artist });
     setAlbums(data);
