@@ -3,15 +3,17 @@ import { AlbumComponent } from "../AlbumComponent/AlbumComponent";
 import "./AlbumList.css";
 
 interface Props {
-  albums: Album[];
+  albums: Album[] | undefined;
 }
 
 const AlbumList = ({ albums }: Props) => {
   return (
     <section className="list">
-      {albums.map((a) => (
-        <AlbumComponent key={a.id} album={a} />
-      ))}
+      {albums && albums.length === 0 ? (
+        <p>No se encontraron resultados</p>
+      ) : (
+        albums?.map((a) => <AlbumComponent key={a.id} album={a} />)
+      )}
     </section>
   );
 };

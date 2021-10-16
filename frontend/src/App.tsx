@@ -5,7 +5,7 @@ import Spinner from "./components/Spinner/Spinner";
 import { Album } from "./interfaces/albumsResponseInterface";
 
 function App() {
-  const [albums, setAlbums] = useState<Album[]>([]);
+  const [albums, setAlbums] = useState<Album[] | undefined>(undefined);
   const [loading, setLoading] = useState(false);
 
   return (

@@ -4,7 +4,7 @@ import { Album } from "../../interfaces/albumsResponseInterface";
 import "./SearchInput.css";
 
 interface Props {
-  setAlbums: React.Dispatch<React.SetStateAction<Album[]>>;
+  setAlbums: React.Dispatch<React.SetStateAction<Album[] | undefined>>;
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
   loading: boolean;
 }
@@ -13,8 +13,8 @@ const SearchInput = ({ setAlbums, loading, setLoading }: Props) => {
   const [artist, setArtist] = useState("");
 
   const handleSubmit = async (e: FormEvent) => {
-    setLoading(true);
     e.preventDefault();
+    setLoading(true);
     const { data } = await axios.post<Album[]>("/api/getAlbums", { artist });
     setAlbums(data);
     setLoading(false);
