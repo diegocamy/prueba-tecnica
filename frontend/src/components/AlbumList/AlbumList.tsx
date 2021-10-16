@@ -10,7 +10,7 @@ const AlbumList = ({ albums }: Props) => {
   return (
     <section className="list">
       {albums && albums.length === 0 ? (
-        <p>No se encontraron resultados</p>
+        <p className="no-results">No se encontraron resultados</p>
       ) : (
         albums?.map((a) => <AlbumComponent key={a.id} album={a} />)
       )}

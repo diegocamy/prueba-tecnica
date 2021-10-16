@@ -5,7 +5,7 @@
   align-items: center;
 }
 
-.list p {
+.list .no-results {
   font-size: 2rem;
   color: white;
 }
