@@ -1,4 +1,4 @@
-import express from "express";
+import express, { json } from "express";
 import dotenv from "dotenv";
 import { getToken } from "./utils/getToken";
 import axios from "axios";
@@ -43,6 +43,9 @@ app.post("/api/getAlbums", async (req, res) => {
         },
       }
     );
+
+    //if the artist is not found, return an empty array right away
+    if (!artist) return res.json([]);
 
     //get the artist's albums from the artists endpoint using the artist.id
     //that was extracted from previous request
