@@ -4,3 +4,8 @@
   justify-content: center;
   align-items: center;
 }
+
+.list p {
+  font-size: 2rem;
+  color: white;
+}

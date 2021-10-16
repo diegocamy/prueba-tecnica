@@ -32,7 +32,7 @@ const SearchInput = ({ setAlbums, loading, setLoading }: Props) => {
           disabled={loading}
         />
         <button type="submit" disabled={loading}>
-          Buscar
+          <i className="fas fa-search"></i>
         </button>
       </form>
     </section>

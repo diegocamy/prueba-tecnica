@@ -20,7 +20,7 @@
 }
 
 .search-input form input {
-  width: 80%;
+  width: 90%;
   font-size: 1.3rem;
   padding: 5px 10px;
   border: none;
@@ -29,7 +29,7 @@
 }
 
 .search-input form button {
-  width: 20%;
+  width: 10%;
   font-size: 1.3rem;
   padding: 5px;
   border: none;
@@ -37,4 +37,8 @@
   color: white;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
+}
+
+.search-input form button:hover {
+  cursor: pointer;
 }
