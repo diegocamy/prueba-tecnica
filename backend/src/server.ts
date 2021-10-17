@@ -3,7 +3,6 @@ import dotenv from "dotenv";
 import { createConnection } from "typeorm";
 import "reflect-metadata";
 import albumRoute from "./routes/album";
-
 dotenv.config();
 const PORT = process.env.PORT || 4000;
 
@@ -17,6 +16,7 @@ createConnection({
   database: process.env.DB_NAME as string,
   synchronize: true,
   logging: true,
+  entities: [__dirname + "/db/entities/*{.ts,.js}"],
 })
   .then(async (connection) => {
     const app = express();
