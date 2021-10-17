@@ -4,12 +4,21 @@ import axios from "axios";
 import { SearchResponse } from "../interfaces/searchResponseInterfaces";
 import { ArtistAlbumsResponse } from "../interfaces/artistAlbumsResponse";
 import { AlbumsResponse } from "../interfaces/albumsReponseInterface";
+import { Search } from "../db/entities/Search";
+import { getManager } from "typeorm";
 
 export default {
   getAlbums: async (req: Request, res: Response) => {
     //get the ip
     const ip = req.ip;
     const { artist: artistName } = req.body as { artist: string };
+
+    //save search to db
+    const entityManager = getManager();
+    const search = new Search();
+    search.artist = artistName;
+    search.ip = ip;
+    await entityManager.save(search);
 
     //encode the artist name from the request body
     const encodedArtistName = encodeURI(artistName);
