@@ -95,3 +95,7 @@ docker-compose up
 ```bash
 npm run dev
 ```
+
+Si no se modificaron las configuraciones, nuestro frontend correrá en `localhost:3000` y será visible desde cualquier navegador local (se recomienda usar chrome) y nuestro backend correrá en `localhost:4000`
+
+Si se utiliza docker-compose y no se modificaron los ajustes del archivo `docker-compose.yml` tendremos acceso al gestor de bases de datos "adminer" en `localhost:8080` (se ingresa desde cualquier navegador)
