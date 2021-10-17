@@ -1,0 +1,16 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  background-color: black;
+}
+
+.navbar a {
+  padding: 0.5rem 2rem;
+  color: white;
+  text-decoration: none;
+}
+
+.active {
+  text-decoration: underline;
+  border-bottom: 5px solid white;
+}
