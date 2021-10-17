@@ -8,6 +8,7 @@
 .search-input form {
   max-width: 600px;
   width: 100%;
+  margin: auto 1rem;
 }
 
 .search-input form label {
