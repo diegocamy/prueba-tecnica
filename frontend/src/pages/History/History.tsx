@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { SearchHistoryObject } from "../interfaces/searchHistoryInterface";
+import { SearchHistoryObject } from "../../interfaces/searchHistoryInterface";
+import "./History.css";
 
 export const History = () => {
   const [searchHistory, setSearchHistory] = useState<SearchHistoryObject[]>([]);
@@ -17,21 +18,25 @@ export const History = () => {
     fetchHistory();
   }, []);
   return (
-    <div>
+    <div className="history-container">
       <h2>Historial de búsquedas</h2>
       <table>
-        <tr>
-          <th>IP</th>
-          <th>Artista</th>
-          <th>Fecha</th>
-        </tr>
-        {searchHistory.map((e) => (
-          <tr key={e.id}>
-            <td>{e.ip}</td>
-            <td>{e.artist}</td>
-            <td>{e.created_at}</td>
+        <thead>
+          <tr>
+            <th>IP</th>
+            <th>Artista</th>
+            <th>Fecha</th>
           </tr>
-        ))}
+        </thead>
+        <tbody>
+          {searchHistory.map((e) => (
+            <tr key={e.id}>
+              <td>{e.ip}</td>
+              <td>{e.artist}</td>
+              <td>{new Date(e.created_at).toLocaleString()}</td>
+            </tr>
+          ))}
+        </tbody>
       </table>
     </div>
   );
