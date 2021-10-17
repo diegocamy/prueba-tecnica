@@ -3,6 +3,8 @@ import dotenv from "dotenv";
 import { createConnection } from "typeorm";
 import "reflect-metadata";
 import albumRoute from "./routes/album";
+import searchRoute from "./routes/search";
+
 dotenv.config();
 const PORT = process.env.PORT || 4000;
 
@@ -23,6 +25,7 @@ createConnection({
 
     app.use(express.json());
     app.use("/api", albumRoute);
+    app.use("/api", searchRoute);
 
     app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
   })
