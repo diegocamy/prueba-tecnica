@@ -1,10 +1,10 @@
 import { useState } from "react";
-import AlbumList from "./components/AlbumList/AlbumList";
-import SearchInput from "./components/SearchInput/SearchInput";
-import Spinner from "./components/Spinner/Spinner";
-import { Album } from "./interfaces/albumsResponseInterface";
+import AlbumList from "../components/AlbumList/AlbumList";
+import SearchInput from "../components/SearchInput/SearchInput";
+import Spinner from "../components/Spinner/Spinner";
+import { Album } from "../interfaces/albumsResponseInterface";
 
-function App() {
+export const Home = () => {
   const [albums, setAlbums] = useState<Album[] | undefined>(undefined);
   const [loading, setLoading] = useState(false);
 
@@ -18,6 +18,4 @@ function App() {
       {loading ? <Spinner /> : <AlbumList albums={albums} />}
     </div>
   );
-}
-
-export default App;
+};
