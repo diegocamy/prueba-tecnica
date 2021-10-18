@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+import cors from "cors";
 import { createConnection } from "typeorm";
 import "reflect-metadata";
 import albumRoute from "./routes/album";
@@ -22,6 +23,8 @@ createConnection({
 })
   .then(async (connection) => {
     const app = express();
+
+    app.use(cors({ origin: "localhost" }));
 
     app.use(express.json());
     app.use("/api", albumRoute);
